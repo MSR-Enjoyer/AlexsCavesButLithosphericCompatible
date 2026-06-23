@@ -1,1 +1,1 @@
-i play with Lithospheric pretty often but miss out on a lot of Alexs Cave structures. So I decided to figure out why. Turns out it was a few magic numbers, so I defined them as constants and tweaked 'em to fit Lithospheric generation.
+i've play with Lithospheric pretty often but miss out on a lot of Alexs Cave structures. This is an effort to make Alex's Caves slightly more compatible with Lithospheric. Turns out the issue was a few magic numbers, so I defined them as constants and tweaked 'em to fit Lithospheric generation.
