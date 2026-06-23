@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class SodaBottleStructure extends Structure {
-
+    private static final int CHECK_THIS_Y = 15;
     public static final Codec<SodaBottleStructure> CODEC = simpleCodec((settings) -> new SodaBottleStructure(settings));
 
     private static final ResourceLocation[] SODA_NBT = new ResourceLocation[]{
@@ -38,7 +38,7 @@ public class SodaBottleStructure extends Structure {
     public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         int i = context.chunkPos().getBlockX(9);
         int j = context.chunkPos().getBlockZ(9);
-        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, -30, j, 20, context.randomState().sampler())) {
+        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, CHECK_THIS_Y, j, 20, context.randomState().sampler())) {
             if (!holder.is(ACBiomeRegistry.CANDY_CAVITY)) {
                 return Optional.empty();
             }
