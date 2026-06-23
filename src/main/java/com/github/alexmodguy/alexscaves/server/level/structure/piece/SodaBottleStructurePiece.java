@@ -40,7 +40,7 @@ public class SodaBottleStructurePiece extends UndergroundTemplateStructurePiece 
 
     @Override
     public int minimumDepthBeneathSurface() {
-        return 35;
+        return 0;
     }
 
     @Override
