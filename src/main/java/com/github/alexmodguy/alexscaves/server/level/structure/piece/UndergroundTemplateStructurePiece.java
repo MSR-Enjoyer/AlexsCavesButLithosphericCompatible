@@ -63,7 +63,7 @@ public abstract class UndergroundTemplateStructurePiece extends TemplateStructur
                 BlockPos structureEdge = StructureTemplate.transform(new BlockPos(this.template.getSize().getX() - 1, 0, this.template.getSize().getZ() - 1), Mirror.NONE, this.placeSettings.getRotation(), BlockPos.ZERO).offset(this.templatePosition);
                 this.templatePosition = new BlockPos(this.templatePosition.getX(), this.getHeight(this.templatePosition, worldGenLevel, structureEdge), this.templatePosition.getZ());
             }
-            if (templatePosition.getY() > chunkGenerator.getSeaLevel() - minimumDepthBeneathSurface()) {
+            if (templatePosition.getY() > level.getMaxBuildHeight() - 1) {
                 templatePosition = templatePosition.atY(-256);
             }
             this.templatePosition = this.templatePosition.below(moveDownBy());
@@ -99,7 +99,7 @@ public abstract class UndergroundTemplateStructurePiece extends TemplateStructur
     protected BlockPos getCaveHeight(BlockPos currentStructureCenter, WorldGenLevel level, RandomSource randomSource) {
         List<BlockPos> possibilities = new ArrayList<>();
         int j = 0;
-        int seaLevel = Math.max(level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, currentStructureCenter.getX(), currentStructureCenter.getZ()), 63);
+        int seaLevel = 63;
         BlockPos.MutableBlockPos chunkCenter = new BlockPos.MutableBlockPos(currentStructureCenter.getX(), level.getMinBuildHeight() + 3, currentStructureCenter.getZ());
         while (chunkCenter.getY() < seaLevel - minimumDepthBeneathSurface()) {
             BlockState currentState = level.getBlockState(chunkCenter);
