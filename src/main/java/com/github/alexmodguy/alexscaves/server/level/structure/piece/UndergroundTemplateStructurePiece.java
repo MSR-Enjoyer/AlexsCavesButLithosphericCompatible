@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public abstract class UndergroundTemplateStructurePiece extends TemplateStructurePiece {
-
+    private final int MAX_BUILD = 64;
     private boolean placedInCaveFlag;
 
     private BlockPos centeredPos;
@@ -63,7 +63,7 @@ public abstract class UndergroundTemplateStructurePiece extends TemplateStructur
                 BlockPos structureEdge = StructureTemplate.transform(new BlockPos(this.template.getSize().getX() - 1, 0, this.template.getSize().getZ() - 1), Mirror.NONE, this.placeSettings.getRotation(), BlockPos.ZERO).offset(this.templatePosition);
                 this.templatePosition = new BlockPos(this.templatePosition.getX(), this.getHeight(this.templatePosition, worldGenLevel, structureEdge), this.templatePosition.getZ());
             }
-            if (templatePosition.getY() > level.getMaxBuildHeight() - 1) {
+            if (templatePosition.getY() > MAX_BUILD - 1) {
                 templatePosition = templatePosition.atY(-256);
             }
             this.templatePosition = this.templatePosition.below(moveDownBy());
