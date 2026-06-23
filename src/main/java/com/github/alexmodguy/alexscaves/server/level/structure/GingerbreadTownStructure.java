@@ -35,7 +35,7 @@ public class GingerbreadTownStructure extends Structure {
     
     public static final Codec<GingerbreadTownStructure> CODEC = simpleCodec((settings) -> new GingerbreadTownStructure(settings));
     private static final int CHECK_Y = 15;
-    private static final int Y = 0;
+    private static final int Y = 15;
 
     public GingerbreadTownStructure(StructureSettings settings) {
         super(settings);
