@@ -53,7 +53,7 @@ public class LicowitchTowerStructurePiece extends UndergroundTemplateStructurePi
 
     @Override
     public int minimumDepthBeneathSurface() {
-        return 35;
+        return 10;
     }
 
     @Override
@@ -102,7 +102,7 @@ public class LicowitchTowerStructurePiece extends UndergroundTemplateStructurePi
 
     @Override
     public boolean discardIfNotOnGround() {
-        return true;
+        return false;
     }
 
     @Override
