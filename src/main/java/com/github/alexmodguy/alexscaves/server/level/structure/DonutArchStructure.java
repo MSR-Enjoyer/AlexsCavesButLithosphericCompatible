@@ -41,7 +41,7 @@ public class DonutArchStructure extends Structure {
         ChunkPos chunkpos = context.chunkPos();
         int i = chunkpos.getMiddleBlockX();
         int j = chunkpos.getMiddleBlockZ();
-        int k = -30;
+        int k = -10;
         return Optional.of(new GenerationStub(new BlockPos(i, k, j), builderConsumer));
     }
 
@@ -51,7 +51,7 @@ public class DonutArchStructure extends Structure {
         int i = context.chunkPos().getMinBlockX();
         int j = context.chunkPos().getMinBlockZ();
         int k = context.chunkGenerator().getSeaLevel();
-        BlockPos xzCoords = new BlockPos(i, 10, j);
+        BlockPos xzCoords = new BlockPos(i, CHECK_Y, j);
         int biomeUp = biomeContinuesInDirectionFor(context.biomeSource(), context.randomState(), Direction.UP, xzCoords, 25);
         int biomeDown = biomeContinuesInDirectionFor(context.biomeSource(), context.randomState(), Direction.DOWN, xzCoords, 16);
         BlockPos center = xzCoords.below(biomeDown).above(5 + worldgenrandom.nextInt(Math.max(biomeUp, 10)));
