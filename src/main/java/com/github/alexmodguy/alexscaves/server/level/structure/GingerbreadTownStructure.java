@@ -32,9 +32,9 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class GingerbreadTownStructure extends Structure {
-
+    
     public static final Codec<GingerbreadTownStructure> CODEC = simpleCodec((settings) -> new GingerbreadTownStructure(settings));
-
+    private static final int CHECK_Y = 15;
     private static final int Y = 0;
 
     public GingerbreadTownStructure(StructureSettings settings) {
@@ -44,7 +44,7 @@ public class GingerbreadTownStructure extends Structure {
     public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         int i = context.chunkPos().getBlockX(9);
         int j = context.chunkPos().getBlockZ(9);
-        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, -30, j, 20, context.randomState().sampler())) {
+        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, CHECK_Y, j, 20, context.randomState().sampler())) {
             if (!holder.is(ACBiomeRegistry.CANDY_CAVITY)) {
                 return Optional.empty();
             }
