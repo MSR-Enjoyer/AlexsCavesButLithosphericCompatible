@@ -33,6 +33,7 @@ public class LicowitchTowerStructure extends Structure {
 
     private static final ResourceLocation TOWER_NBT = ResourceLocation.fromNamespaceAndPath(AlexsCaves.MODID, "licowitch_tower");
     private static final int Y = 0;
+    private static final int CHECK_Y = 5;
 
     public LicowitchTowerStructure(StructureSettings settings) {
         super(settings);
@@ -41,7 +42,7 @@ public class LicowitchTowerStructure extends Structure {
     public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         int i = context.chunkPos().getBlockX(9);
         int j = context.chunkPos().getBlockZ(9);
-        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, -30, j, 20, context.randomState().sampler())) {
+        for (Holder<Biome> holder : ACMath.getBiomesWithinAtY(context.biomeSource(), i, CHECK_Y, j, 20, context.randomState().sampler())) {
             if (!holder.is(ACBiomeRegistry.CANDY_CAVITY)) {
                 return Optional.empty();
             }
