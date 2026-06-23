@@ -22,6 +22,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class DonutArchStructure extends Structure {
+    private static final int CHECK_Y = 10;
     public static final Codec<DonutArchStructure> CODEC = simpleCodec((settings) -> new DonutArchStructure(settings));
 
     public static final int DONUT_SECTION_WIDTH = 16;
@@ -50,7 +51,7 @@ public class DonutArchStructure extends Structure {
         int i = context.chunkPos().getMinBlockX();
         int j = context.chunkPos().getMinBlockZ();
         int k = context.chunkGenerator().getSeaLevel();
-        BlockPos xzCoords = new BlockPos(i, -30, j);
+        BlockPos xzCoords = new BlockPos(i, 10, j);
         int biomeUp = biomeContinuesInDirectionFor(context.biomeSource(), context.randomState(), Direction.UP, xzCoords, 25);
         int biomeDown = biomeContinuesInDirectionFor(context.biomeSource(), context.randomState(), Direction.DOWN, xzCoords, 16);
         BlockPos center = xzCoords.below(biomeDown).above(5 + worldgenrandom.nextInt(Math.max(biomeUp, 10)));
